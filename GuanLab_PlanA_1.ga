@@ -1,0 +1,190 @@
+{
+    "a_galaxy_workflow": "true", 
+    "format-version": "0.1", 
+    "name": "GuanLab_PlanA_1", 
+    "steps": {
+        "1": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "f08f9f44-b188-4957-9e9e-c71ee709a696", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "CNA_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 381, 
+                "left": 325.5
+            }, 
+            "tool_state": "{\"name\": \"CNA_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 1, 
+            "name": "Input dataset"
+        }, 
+        "0": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "363fef81-4897-4c2e-9349-581b453f0e3c", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "VCF_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 249, 
+                "left": 339.5
+            }, 
+            "tool_state": "{\"name\": \"VCF_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 0, 
+            "name": "Input dataset"
+        }, 
+        "3": {
+            "tool_id": "smc_het_eval", 
+            "content_id": "smc_het_eval", 
+            "uuid": "5bcf8b11-7842-4e42-a508-cad5256cb748", 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "outfile"
+                }
+            ], 
+            "post_job_actions": {
+                "RenameDatasetActionoutfile": {
+                    "output_name": "outfile", 
+                    "action_type": "RenameDatasetAction", 
+                    "action_arguments": {
+                        "newname": "OUTPUT"
+                    }
+                }
+            }, 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {
+                "cluster_assignment|predfile": {
+                    "output_name": "assignments", 
+                    "id": 2
+                }, 
+                "cellularity|predfile": {
+                    "output_name": "cellularity", 
+                    "id": 2
+                }, 
+                "cocluster_assignment|predfile": {
+                    "output_name": "co_clustering", 
+                    "id": 2
+                }, 
+                "cocluster_assignment|ancestor|predfile": {
+                    "output_name": "ancestor", 
+                    "id": 2
+                }, 
+                "proportion|predfile": {
+                    "output_name": "proportions", 
+                    "id": 2
+                }, 
+                "population|predfile": {
+                    "output_name": "no_clusters", 
+                    "id": 2
+                }, 
+                "cluster_assignment|phylogeny|predfile": {
+                    "output_name": "phylogeny", 
+                    "id": 2
+                }
+            }, 
+            "inputs": [
+                {
+                    "name": "sample", 
+                    "description": "runtime parameter for tool SMC-Het Evaluator"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 269, 
+                "left": 890
+            }, 
+            "tool_state": "{\"cocluster_assignment\": \"{\\\"ancestor\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"approx\": \"{\\\"enable\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"proportion\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"sample\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cellularity\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"cluster_assignment\": \"{\\\"predfile\\\": null, \\\"phylogeny\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"population\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 3, 
+            "name": "SMC-Het Evaluator"
+        }, 
+        "2": {
+            "tool_id": "licl1", 
+            "content_id": "licl1", 
+            "uuid": "a559e51e-87a2-4b1e-98ed-f48bfb930cdd", 
+            "tool_version": "0.0.1", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "cellularity"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "no_clusters"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "proportions"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "assignments"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "co_clustering"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "phylogeny"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "ancestor"
+                }
+            ], 
+            "post_job_actions": {}, 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {
+                "input_vcf": {
+                    "output_name": "output", 
+                    "id": 0
+                }, 
+                "input_bat": {
+                    "output_name": "output", 
+                    "id": 1
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 240, 
+                "left": 585.5
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_bat\": \"null\", \"input_vcf\": \"null\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 2, 
+            "name": "GuanLab SMC-Het Plan A1"
+        }
+    }, 
+    "annotation": "", 
+    "uuid": "761eec0f-23d4-4554-b799-dbff77647a0e"
+}
